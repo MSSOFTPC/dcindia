@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Grievance Support | Drive Chambers India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-white text-[#171717] antialiased">
+  <div id="dci-header-mount"></div>
+
+  <main>
+    <section class="bg-light-grid border-b border-gray-200 py-14 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-bold uppercase tracking-widest text-[#B08424] mb-2">Support &amp; Grievance Channel</p>
+        <h1 class="page-title font-extrabold text-[#294766] max-w-3xl">Contact Drive Chambers India</h1>
+        <p class="text-[#667085] mt-4 max-w-2xl">Reach our Meerut headquarters, member support desk, or Grievance Officer.</p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-[#F3F5F7]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-5 space-y-5">
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 space-y-4">
+            <h2 class="text-xl font-extrabold text-[#294766]">Official Contact Details</h2>
+            <p class="text-sm text-[#667085]"><strong>Headquarters:</strong> Meerut, Uttar Pradesh, India (Pan-India Operations)</p>
+            <p class="text-sm text-[#667085]"><strong>Member Support:</strong> support@drivechambers.in</p>
+            <p class="text-sm text-[#667085]"><strong>Grievance Officer:</strong> grievance@drivechambers.in</p>
+            <p class="text-sm text-[#667085]"><strong>Support Hours:</strong> Monday – Saturday, 9:00 AM to 7:00 PM IST</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-red-50 border border-red-200 text-red-900 text-sm">
+            <p class="font-bold mb-1">Emergency Disclaimer</p>
+            <p>DCI is <strong>not</strong> an emergency response service. In case of immediate physical danger, road injury, or crime, dial <strong>112</strong> (National Emergency), <strong>100</strong> (Police), or <strong>108</strong> (Ambulance).</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+          <h2 class="text-2xl font-extrabold text-[#171717] mb-1">Send a Message or Grievance</h2>
+          <p class="text-sm text-[#667085] mb-6">Existing members can also raise and track cases directly inside their <a href="login.html" class="text-[#294766] font-semibold underline">Customer Dashboard</a>.</p>
+
+          <form id="contact-form" data-dci-validate class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="c-name" class="block text-sm font-semibold mb-1">Full Name *</label>
+                <input id="c-name" name="name" type="text" required class="dci-input" data-error="err-cname">
+                <div id="err-cname" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter your full name.</div>
+              </div>
+              <div>
+                <label for="c-mobile" class="block text-sm font-semibold mb-1">Mobile Number *</label>
+                <input id="c-mobile" name="mobile" type="tel" required pattern="[6-9][0-9]{9}" class="dci-input" data-error="err-cmob">
+                <div id="err-cmob" class="error-msg"><span role="img" aria-label="Error">❌</span> Enter a valid 10-digit mobile number.</div>
+              </div>
+            </div>
+
+            <div>
+              <label for="c-email" class="block text-sm font-semibold mb-1">Email Address *</label>
+              <input id="c-email" name="email" type="email" required class="dci-input" data-error="err-cemail">
+              <div id="err-cemail" class="error-msg"><span role="img" aria-label="Error">❌</span> Enter a valid email address.</div>
+            </div>
+
+            <div>
+              <label for="c-topic" class="block text-sm font-semibold mb-1">Topic *</label>
+              <select id="c-topic" name="topic" required class="dci-select" data-error="err-ctopic">
+                <option value="">Select topic</option>
+                <option value="General Enquiry">General Enquiry</option>
+                <option value="Membership Support">Membership Support</option>
+                <option value="Grievance / Escalation">Grievance / Escalation</option>
+                <option value="Dealership Partnership">Dealership Partnership</option>
+              </select>
+              <div id="err-ctopic" class="error-msg"><span role="img" aria-label="Error">❌</span> Please select a topic.</div>
+            </div>
+
+            <div>
+              <label for="c-msg" class="block text-sm font-semibold mb-1">Message *</label>
+              <textarea id="c-msg" name="message" rows="4" required minlength="10" class="dci-textarea" data-error="err-cmsg"></textarea>
+              <div id="err-cmsg" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter at least 10 characters.</div>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-[#294766] text-white font-bold text-sm hover:bg-[#1D344C] cursor-pointer">Submit Message</button>
+            <div id="contact-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-medium"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="dci-footer-mount"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contact-form");
+      const box = document.getElementById("contact-success");
+      form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) return;
+        box.textContent = "Your message has been received. Ticket ID: TKT-" + Math.floor(100000 + Math.random() * 900000) + ". Our support desk will respond within 1 business day.";
+        box.classList.remove("hidden");
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership &amp; Operations Portal | Drive Chambers India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[#F3F5F7] text-[#171717] antialiased min-h-screen flex flex-col">
+  <!-- Light-Theme Portal Top Bar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md text-[#171717] border-b border-gray-200 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2" aria-label="Back to DCI Home">
+          <img src="assets/img/dci-logo.png" alt="Drive Chambers India" class="h-10 w-auto" width="72" height="40">
+        </a>
+        <span id="portal-role-badge" class="px-2.5 py-1 rounded-md bg-[#FAF3E0] text-[#9E761E] text-xs font-bold border border-[#C89B35]/40"></span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5">
+        <label for="role-switcher" class="text-xs text-[#667085] font-medium hidden sm:inline">Switch Role:</label>
+        <select id="role-switcher" class="rounded-lg bg-[#F3F5F7] border border-gray-300 text-[#171717] text-xs font-semibold px-3 py-2">
+          <option value="admin">Super Admin</option>
+          <option value="dds">DDS (Meerut)</option>
+          <option value="dealership">Dealership (Ganga Motors)</option>
+          <option value="manager">Dealership Manager</option>
+          <option value="agent">Sales Agent (Rohit Malik)</option>
+          <option value="customer">Customer / Member</option>
+        </select>
+        <button id="btn-reset-demo" type="button" class="px-3 py-2 rounded-lg bg-[#F3F5F7] hover:bg-gray-200 border border-gray-200 text-[#171717] text-xs font-semibold cursor-pointer">
+          Reset Demo
+        </button>
+        <a href="index.html" class="px-3 py-2 rounded-lg bg-[#294766] hover:bg-[#1D344C] text-white text-xs font-semibold">
+          Public Site
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="portal-root" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8"></main>
+
+  <!-- Native Modal: Digital Membership Certificate -->
+  <dialog id="cert-dialog" closedby="any" aria-labelledby="cert-dialog-title">
+    <div class="p-6 sm:p-8">
+      <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-5">
+        <h1 id="cert-dialog-title" class="text-lg font-extrabold text-[#294766]">Digital Membership Certificate</h1>
+        <form method="dialog">
+          <button type="submit" class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-xs font-bold cursor-pointer">Close</button>
+        </form>
+      </div>
+      <div id="certificate-print-area" class="rounded-xl border-2 border-[#C89B35] bg-gradient-to-br from-white to-[#FAF3E0]/40 p-6 space-y-4">
+        <div class="flex items-center justify-between border-b border-[#C89B35]/40 pb-4">
+          <div>
+            <p class="font-serif text-xl font-bold text-[#171717] tracking-wider">DRIVE CHAMBERS INDIA</p>
+            <p class="text-xs italic text-[#B08424]">"Your Vehicle. Your Rights. Our Legal Support."</p>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold" id="cert-status">ACTIVE</span>
+        </div>
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <p class="text-xs text-[#667085]">Membership ID</p>
+            <p class="font-mono font-bold text-[#294766]" id="cert-id"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#667085]">Member Name</p>
+            <p class="font-bold text-[#171717]" id="cert-name"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#667085]">Vehicle Category &amp; Model</p>
+            <p class="font-semibold text-[#171717]" id="cert-vehicle"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#667085]">Registration Number</p>
+            <p class="font-semibold text-[#171717]" id="cert-reg"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#667085]">Plan Name</p>
+            <p class="font-semibold text-[#171717]" id="cert-plan"></p>
+          </div>
+          <div>
+            <p class="text-xs text-[#667085]">Validity Period</p>
+            <p class="font-semibold text-[#171717]" id="cert-validity"></p>
+          </div>
+        </div>
+        <p class="text-[11px] text-[#667085] pt-3 border-t border-gray-200">
+          Disclaimer: This certificate confirms enrolment in Drive Chambers India's private assistance membership. It does not represent government authority or guarantee challan cancellation or insurance claim approval.
+        </p>
+      </div>
+      <div class="mt-5 flex justify-end gap-3">
+        <button type="button" onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-[#C89B35] text-[#171717] font-bold text-sm hover:bg-[#DFB858] cursor-pointer">
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Native Modal: Admin Dealership Verification -->
+  <dialog id="verify-dialog" closedby="any" aria-labelledby="verify-dialog-title">
+    <form id="verify-form" class="p-6 sm:p-8 space-y-4">
+      <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+        <h1 id="verify-dialog-title" class="text-lg font-extrabold text-[#294766]">Verify Dealership Application</h1>
+        <button type="button" id="verify-close-btn" class="px-3 py-1 rounded-lg bg-gray-100 text-xs font-bold cursor-pointer">Close</button>
+      </div>
+      <p class="text-sm text-[#667085]" id="verify-dealer-summary"></p>
+      <input type="hidden" id="verify-dealer-id">
+      <div>
+        <label for="verify-action" class="block text-sm font-semibold mb-1">Verification Decision *</label>
+        <select id="verify-action" class="dci-select" required>
+          <option value="Approved">Approve Dealership</option>
+          <option value="Correction Required">Request Correction</option>
+          <option value="Rejected">Reject Application</option>
+          <option value="Suspended">Suspend Dealership</option>
+        </select>
+      </div>
+      <div>
+        <label for="verify-reason" class="block text-sm font-semibold mb-1">Remarks / Mandatory Reason *</label>
+        <textarea id="verify-reason" rows="3" required class="dci-textarea" placeholder="Enter verification remarks or reason for rejection/correction..."></textarea>
+      </div>
+      <div class="flex justify-end gap-3 pt-2">
+        <button type="submit" class="px-5 py-2.5 rounded-xl bg-[#294766] text-white font-bold text-sm hover:bg-[#1D344C] cursor-pointer">
+          Save Decision &amp; Log Audit
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="assets/js/portal-data.js"></script>
+  <script src="assets/js/portal.js"></script>
+</body>
+</html>

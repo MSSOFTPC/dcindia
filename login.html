@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role-Aware Portal Login | Drive Chambers India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[#F3F5F7] text-[#171717] antialiased min-h-screen flex flex-col">
+  <div id="dci-header-mount"></div>
+
+  <main class="flex-1 py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Login Form -->
+      <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-[#C89B35]">Secure RBAC Entry</p>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-[#294766]">DCI Portal Login</h1>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-[#F3F5F7] text-xs font-semibold text-[#667085]">OTP / Password</span>
+        </div>
+
+        <form id="portal-login-form" data-dci-validate class="space-y-4">
+          <div>
+            <label for="login-role" class="block text-sm font-semibold mb-1">Select Portal Role *</label>
+            <select id="login-role" name="role" required class="dci-select" data-error="err-lrole">
+              <option value="customer">Customer / Member</option>
+              <option value="agent">Sales Agent</option>
+              <option value="manager">Dealership Manager</option>
+              <option value="dealership">Dealership Partner</option>
+              <option value="dds">DDS – District Director of Sales</option>
+              <option value="admin">Super Admin (MFA Protected)</option>
+            </select>
+            <div id="err-lrole" class="error-msg"><span role="img" aria-label="Error">❌</span> Please select a role.</div>
+          </div>
+
+          <div>
+            <label for="login-id" class="block text-sm font-semibold mb-1">Registered Mobile Number or Email *</label>
+            <input id="login-id" name="identifier" type="text" required class="dci-input" data-error="err-lid" value="9876543210" placeholder="10-digit mobile or email">
+            <div id="err-lid" class="error-msg"><span role="img" aria-label="Error">❌</span> Enter your registered mobile or email.</div>
+          </div>
+
+          <div>
+            <label for="login-secret" class="block text-sm font-semibold mb-1">OTP / Password *</label>
+            <input id="login-secret" name="secret" type="password" required class="dci-input" data-error="err-lsec" value="123456" placeholder="Enter OTP or password">
+            <div id="err-lsec" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter your OTP or password.</div>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-[#C89B35] text-[#171717] font-bold text-sm hover:bg-[#DFB858] transition-colors cursor-pointer">
+            Sign In to Dashboard
+          </button>
+        </form>
+      </div>
+
+      <!-- Instant Role Demo Switcher -->
+      <aside class="lg:col-span-5 bg-white text-[#171717] rounded-2xl p-6 sm:p-8 border-2 border-[#C89B35]/50 shadow-lg space-y-4">
+        <p class="text-xs font-bold uppercase tracking-widest text-[#B08424]">Interactive Demo Access</p>
+        <h2 class="text-xl font-extrabold text-[#294766]">Explore Any Role Dashboard</h2>
+        <p class="text-xs text-[#667085] leading-relaxed">
+          Click any role below to launch directly into its live RBAC dashboard with pre-populated Meerut district data, verification queues, agent sales, and customer case tracking.
+        </p>
+        <div class="grid grid-cols-1 gap-2.5 pt-2">
+          <button type="button" data-quick-role="admin" class="quick-role-btn text-left px-4 py-3 rounded-xl bg-[#F3F5F7] hover:bg-[#FAF3E0] border border-gray-200 hover:border-[#C89B35] transition-colors flex justify-between items-center cursor-pointer">
+            <span class="font-bold text-sm text-[#171717]">Super Admin</span>
+            <span class="text-xs text-[#294766] font-semibold">Full Control &amp; Approvals &rarr;</span>
+          </button>
+          <button type="button" data-quick-role="dds" class="quick-role-btn text-left px-4 py-3 rounded-xl bg-[#F3F5F7] hover:bg-[#FAF3E0] border border-gray-200 hover:border-[#C89B35] transition-colors flex justify-between items-center cursor-pointer">
+            <span class="font-bold text-sm text-[#171717]">DDS (Meerut)</span>
+            <span class="text-xs text-[#294766] font-semibold">Register Dealerships &rarr;</span>
+          </button>
+          <button type="button" data-quick-role="dealership" class="quick-role-btn text-left px-4 py-3 rounded-xl bg-[#F3F5F7] hover:bg-[#FAF3E0] border border-gray-200 hover:border-[#C89B35] transition-colors flex justify-between items-center cursor-pointer">
+            <span class="font-bold text-sm text-[#171717]">Dealership</span>
+            <span class="text-xs text-[#294766] font-semibold">Profile &amp; Roster &rarr;</span>
+          </button>
+          <button type="button" data-quick-role="manager" class="quick-role-btn text-left px-4 py-3 rounded-xl bg-[#F3F5F7] hover:bg-[#FAF3E0] border border-gray-200 hover:border-[#C89B35] transition-colors flex justify-between items-center cursor-pointer">
+            <span class="font-bold text-sm text-[#171717]">Dealership Manager</span>
+            <span class="text-xs text-[#294766] font-semibold">Manage Sales Agents &rarr;</span>
+          </button>
+          <button type="button" data-quick-role="agent" class="quick-role-btn text-left px-4 py-3 rounded-xl bg-[#F3F5F7] hover:bg-[#FAF3E0] border border-gray-200 hover:border-[#C89B35] transition-colors flex justify-between items-center cursor-pointer">
+            <span class="font-bold text-sm text-[#171717]">Sales Agent</span>
+            <span class="text-xs text-[#294766] font-semibold">Enrol Customer &amp; Sell &rarr;</span>
+          </button>
+          <button type="button" data-quick-role="customer" class="quick-role-btn text-left px-4 py-3 rounded-xl bg-[#EEF3F8] hover:bg-[#C89B35] hover:text-[#171717] border border-[#294766]/20 transition-colors flex justify-between items-center cursor-pointer">
+            <span class="font-bold text-sm text-[#294766]">Customer / Member</span>
+            <span class="text-xs text-[#294766] font-semibold">Card, Certificate &amp; Cases &rarr;</span>
+          </button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="dci-footer-mount"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const roleParam = params.get("role");
+      const roleSelect = document.getElementById("login-role");
+      if (roleParam && roleSelect) {
+        roleSelect.value = roleParam;
+      }
+
+      document.getElementById("portal-login-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const role = roleSelect.value;
+        localStorage.setItem("dci_active_role", role);
+        window.location.href = `portal.html?role=${encodeURIComponent(role)}`;
+      });
+
+      document.querySelectorAll(".quick-role-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const role = btn.dataset.quickRole;
+          localStorage.setItem("dci_active_role", role);
+          window.location.href = `portal.html?role=${encodeURIComponent(role)}`;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

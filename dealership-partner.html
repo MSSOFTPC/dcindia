@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dealership Partnership | Drive Chambers India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-white text-[#171717] antialiased">
+  <div id="dci-header-mount"></div>
+
+  <main>
+    <section class="bg-light-grid border-b border-gray-200 py-14 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs font-bold uppercase tracking-widest text-[#B08424] mb-2">Dealership Onboarding</p>
+        <h1 class="page-title font-extrabold text-[#294766] max-w-3xl">Partner With DCI to Offer Structured Vehicle Legal Support</h1>
+        <p class="text-[#667085] mt-4 max-w-2xl">Available for Two-Wheeler, Four-Wheeler, and Multi-Brand dealerships across Meerut and upcoming Pan-India districts.</p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-[#F3F5F7]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-5 space-y-6">
+          <div class="parallax-frame shadow-md border border-gray-200">
+            <img src="assets/img/dealership-showroom.webp" alt="DCI Partner Dealership Showroom" class="parallax-media w-full h-52 object-cover" width="1200" height="805" loading="lazy">
+          </div>
+          <h2 class="text-2xl font-extrabold text-[#294766]">Partner Benefits &amp; Controls</h2>
+          <div class="gold-divider"></div>
+          <ul class="space-y-3 text-sm text-[#171717]">
+            <li class="p-4 bg-white rounded-xl border border-gray-200"><strong>Verified Dealership Code:</strong> Issued upon Super Admin KYC &amp; document approval.</li>
+            <li class="p-4 bg-white rounded-xl border border-gray-200"><strong>Manager &amp; Agent Dashboards:</strong> Add Sales Agents, track conversions, and prevent duplicate customer enrolments.</li>
+            <li class="p-4 bg-white rounded-xl border border-gray-200"><strong>Approved Marketing Kit:</strong> Download official brochures, QR codes, and compliance-reviewed materials.</li>
+            <li class="p-4 bg-white rounded-xl border border-gray-200"><strong>Compliance Safeguard:</strong> Customer enrolment is strictly optional; vehicle sales must never be conditioned on membership.</li>
+          </ul>
+          <a href="login.html?role=dealership" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#294766] text-white font-bold text-sm hover:bg-[#1D344C]">
+            Already a Partner? Login to Portal &rarr;
+          </a>
+        </div>
+
+        <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+          <h2 class="text-2xl font-extrabold text-[#171717] mb-1">Dealership Onboarding Enquiry</h2>
+          <p class="text-sm text-[#667085] mb-6">Submit your showroom details. Our District Director of Sales (DDS) will contact you to initiate formal verification.</p>
+
+          <form id="partner-enquiry-form" data-dci-validate class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="dealership-name" class="block text-sm font-semibold mb-1">Dealership Legal / Trade Name *</label>
+                <input id="dealership-name" name="dealershipName" type="text" required minlength="3" class="dci-input" data-error="err-dname" placeholder="e.g., Meerut Motors Pvt Ltd">
+                <div id="err-dname" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter your dealership name (at least 3 characters).</div>
+              </div>
+              <div>
+                <label for="oem-brand" class="block text-sm font-semibold mb-1">Brand / OEM *</label>
+                <input id="oem-brand" name="oemBrand" type="text" required class="dci-input" data-error="err-oem" placeholder="e.g., Maruti Suzuki / Honda">
+                <div id="err-oem" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter the OEM or multi-brand name.</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="category" class="block text-sm font-semibold mb-1">Vehicle Category *</label>
+                <select id="category" name="category" required class="dci-select" data-error="err-cat">
+                  <option value="">Select category</option>
+                  <option value="Two Wheeler">Two Wheeler</option>
+                  <option value="Four Wheeler">Four Wheeler</option>
+                  <option value="Multi-Brand">Multi-Brand (2W &amp; 4W)</option>
+                </select>
+                <div id="err-cat" class="error-msg"><span role="img" aria-label="Error">❌</span> Please select a vehicle category.</div>
+              </div>
+              <div>
+                <label for="district" class="block text-sm font-semibold mb-1">District &amp; State *</label>
+                <input id="district" name="district" type="text" required class="dci-input" data-error="err-dist" placeholder="e.g., Meerut, Uttar Pradesh">
+                <div id="err-dist" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter your district and state.</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contact-person" class="block text-sm font-semibold mb-1">Contact Person *</label>
+                <input id="contact-person" name="contactPerson" type="text" required class="dci-input" data-error="err-cp" placeholder="Full name">
+                <div id="err-cp" class="error-msg"><span role="img" aria-label="Error">❌</span> Please enter the contact person's name.</div>
+              </div>
+              <div>
+                <label for="mobile" class="block text-sm font-semibold mb-1">Official Mobile (10 digits) *</label>
+                <span id="mobile-hint" class="block text-xs text-[#667085] mb-1">Format: 10-digit Indian mobile number</span>
+                <input id="mobile" name="mobile" type="tel" required pattern="[6-9][0-9]{9}" aria-describedby="mobile-hint" class="dci-input" data-error="err-mob" placeholder="9876543210">
+                <div id="err-mob" class="error-msg"><span role="img" aria-label="Error">❌</span> Enter a valid 10-digit Indian mobile number starting with 6–9.</div>
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-semibold mb-1">Official Email *</label>
+              <input id="email" name="email" type="email" required autocomplete="email" class="dci-input" data-error="err-email" placeholder="dealer@example.com">
+              <div id="err-email" class="error-msg"><span role="img" aria-label="Error">❌</span> Enter a valid email address (e.g. dealer@example.com).</div>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-[#C89B35] text-[#171717] font-bold text-sm hover:bg-[#DFB858] transition-colors cursor-pointer">
+              Submit Partnership Enquiry
+            </button>
+            <div id="partner-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-medium"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="dci-footer-mount"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("partner-enquiry-form");
+      const box = document.getElementById("partner-success");
+      form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) return;
+        const fd = new FormData(form);
+        box.textContent = `Thank you! Enquiry for "${fd.get("dealershipName")}" (${fd.get("district")}) has been logged for the assigned DDS. Reference: ENQ-${Math.floor(100000 + Math.random() * 900000)}.`;
+        box.classList.remove("hidden");
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
